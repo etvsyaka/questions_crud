@@ -29,6 +29,11 @@ class Question
      */
     private $answers;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $correctAnswers;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
@@ -77,6 +82,18 @@ class Question
                 $answer->setQuestion(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCorrectAnswer(): ?string
+    {
+        return $this->correctAnswers;
+    }
+
+    public function setCorrectAnswer(string $correctAnswers): self
+    {
+        $this->correctAnswers = $correctAnswers;
 
         return $this;
     }
