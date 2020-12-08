@@ -20,7 +20,7 @@ class Answer
     /**
      * @ORM\Column(type="text")
      */
-    private $anwserText;
+    private $answerText;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -38,14 +38,14 @@ class Answer
         return $this->id;
     }
 
-    public function getAnwserText(): ?string
+    public function getAnswerText(): ?string
     {
-        return $this->anwserText;
+        return $this->answerText;
     }
 
-    public function setAnwserText(string $anwserText): self
+    public function setAnswerText(string $answerText): self
     {
-        $this->anwserText = $anwserText;
+        $this->answerText = $answerText;
 
         return $this;
     }
