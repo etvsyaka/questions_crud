@@ -2,8 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Answer;
 use App\Entity\Question;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,6 +15,13 @@ class QuestionType extends AbstractType
     {
         $builder
             ->add('questionText')
+            ->add('correctAnswer')
+            ->add('questions', CollectionType::class, [
+                'entry_type'   => Answer::class,
+                'allow_add'    => true,
+                'allow_delete' => true,
+                'delete_empty' => true,
+            ]);
         ;
     }
 
